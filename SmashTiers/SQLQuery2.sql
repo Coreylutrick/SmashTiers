@@ -20,11 +20,11 @@ DROP TABLE MoveSetFrameData
 CREATE TABLE Character (
   Id int not null PRIMARY KEY IDENTITY(1,1),
   CharacterName varchar(50) not null,
-  Weight varchar(50) not null,
-  Speed varchar(50) not null,
+  Weight int not null,
+  Speed DECIMAL(4,3) not null,
   MoveSetDamageId int not null,
   MoveSetFrameDataId int not null,
-  TournamentStandingId int not null,
+  TournamentStandingId int,
   IsFavorite bit not null,
   Picture varchar(MAX) not null 
 );
@@ -32,7 +32,7 @@ CREATE TABLE Character (
 CREATE TABLE MoveSetFrameData (
 	Id int not null PRIMARY KEY IDENTITY(1,1),
 	CharacterId int not null,
-	JabOne int not null,
+	JabOne DECIMAL(5,2) not null,
 	JabTwo int not null,
 	JabThree int not null,
 	FTilt int not null,
