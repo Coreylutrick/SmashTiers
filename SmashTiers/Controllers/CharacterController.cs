@@ -38,5 +38,23 @@ namespace SmashTiers.Controllers
         {
             return Ok(_storage.SortByHeaviest());
         }
+
+        [HttpGet("lightest")]
+        public IActionResult GetCharacterByLightest()
+        {
+            return Ok(_storage.SortByLightest());
+        }
+
+        [HttpGet("slowest")]
+        public IActionResult GetCharacterBySlowest()
+        {
+            return Ok(_storage.SortBySlowest());
+        }
+
+        [HttpGet("fastest")]
+        public IActionResult GetCharacterByFastest()
+        {
+            return Ok(_storage.SortByFastest());
+        }
     }
 }

@@ -61,5 +61,47 @@ namespace SmashTiers.DataAccess
                 return result;
             }
         }
+
+        public IEnumerable<Character> SortByLightest()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Query<Character>(@"select *
+                                                            from Character
+                                                            ORDER BY Weight ");
+
+                return result;
+            }
+        }
+
+        public IEnumerable<Character> SortBySlowest()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Query<Character>(@"select *
+                                                            from Character
+                                                            ORDER BY Speed");
+
+                return result;
+            }
+        }
+
+        public IEnumerable<Character> SortByFastest()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Query<Character>(@"select *
+                                                            from Character
+                                                            ORDER BY Speed DESC");
+
+                return result;
+            }
+        }
     }
 }
