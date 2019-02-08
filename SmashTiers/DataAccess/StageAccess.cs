@@ -24,7 +24,7 @@ namespace SmashTiers.DataAccess
             {
                 connection.Open();
 
-                var result = connection.Query<StageSplash>(@"select s.Picture
+                var result = connection.Query<StageSplash>(@"select s.Picture, s.Id
                                                         from Stages as s");
 
                 return result;

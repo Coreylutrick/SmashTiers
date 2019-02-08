@@ -7,6 +7,7 @@ namespace SmashTiers.Models
 {
     public class Character
     {
+        public int Id { get; set; }
         public string Picture { get; set; }
     }
 }

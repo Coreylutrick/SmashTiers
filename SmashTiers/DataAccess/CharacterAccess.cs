@@ -24,7 +24,7 @@ namespace SmashTiers.DataAccess
             {
                 connection.Open();
 
-                var result = connection.Query<Character>(@"select c.Picture
+                var result = connection.Query<Character>(@"select c.Picture, c.Id
                                                             from Character as c");
                 return result;
             }
