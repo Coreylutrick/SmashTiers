@@ -1,6 +1,7 @@
 ﻿import React, { Component } from 'react';
 import characterRequests from '../../DBRequests/CharacterRequests';
 import { Modal, Button, Glyphicon } from 'react-bootstrap';
+//import { CharacterFilterButtons } from '../CharacterFilterButtons/CharacterFilterButtons';
 
 
 export class Character extends Component {
@@ -22,8 +23,13 @@ export class Character extends Component {
     }
 
     render() {
+
         const singleCharacter = (id) => {
             this.props.history.push(`/character/${id}`)
+        }
+
+        const sortByHeaviest = () => {
+            this.props.history.push(`/character/heaviest`)
         }
 
         const allCharacters = this.state.characters.map((character) => {
@@ -38,6 +44,9 @@ export class Character extends Component {
             <div>
                 <div>
                     <h1>Characters</h1>
+                </div>
+                <div>
+                    <button onClick={() => sortByHeaviest()}>Heaviest</button>
                 </div>
                 <div>
                     {allCharacters}

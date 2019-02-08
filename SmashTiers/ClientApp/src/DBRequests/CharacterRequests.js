@@ -17,6 +17,23 @@ const getAllCharactersRequest = () =>
   });
 }
 
+const GetCharactersByHeaviest = () =>
+{
+  return new Promise ((resolve, reject) =>
+  {
+    axios
+    .get(`/api/character/heaviest`)
+    .then(res =>
+      {
+        resolve(res.data)
+      })
+      .catch(err =>
+      {
+        reject(err)
+      });
+  });
+}
+
 const getCharacterById = (id) =>
 {
   return new Promise((resolve, reject) =>
@@ -34,4 +51,4 @@ const getCharacterById = (id) =>
   });
 };
 
-export default {getAllCharactersRequest, getCharacterById}
+export default {getAllCharactersRequest, getCharacterById, GetCharactersByHeaviest}
