@@ -47,5 +47,19 @@ namespace SmashTiers.DataAccess
                 return result;
             }
         }
+
+        public IEnumerable<Character> SortByHeaviest()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Query<Character>(@"select *
+                                                            from Character
+                                                            ORDER BY Weight DESC");
+
+                return result;
+            }
+        }
     }
 }

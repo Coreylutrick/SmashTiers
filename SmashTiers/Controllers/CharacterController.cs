@@ -32,5 +32,11 @@ namespace SmashTiers.Controllers
         {
             return Ok(_storage.GetCharacterById(id));
         }
+
+        [HttpGet("heaviest")]
+        public IActionResult GetCharacterByHeaviest()
+        {
+            return Ok(_storage.SortByHeaviest());
+        }
     }
 }

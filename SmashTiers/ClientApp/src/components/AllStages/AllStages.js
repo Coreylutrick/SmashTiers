@@ -21,10 +21,15 @@ export class Stage extends Component {
   }
 
   render() {
+
+    const singleStage = (id) => {
+      this.props.history.push(`/stage/${id}`)
+    }
+
     const allStages = this.state.stages.map((stage) => {
       return (
         <div key={stage.id}>
-          <img src={stage.picture} width="250" />
+          <img src={stage.picture} width="250" onClick={() =>singleStage(stage.id)}/>
         </div>
       );
     });

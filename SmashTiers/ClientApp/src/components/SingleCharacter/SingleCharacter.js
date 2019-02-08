@@ -29,10 +29,12 @@ export class SingleCharacter extends Component {
       return (
         <div>
           <div key={character.id}>
-            <h1>{character.characterName}</h1>
-          </div>
-          <div>
-            <img src={character.picture} width="350" />
+            <div>
+              <h1>{character.characterName}</h1>
+            </div>
+            <div>
+              <img src={character.picture} width="350" />
+            </div>
           </div>
         </div>
       );
