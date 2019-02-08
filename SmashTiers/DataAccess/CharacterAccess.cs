@@ -30,13 +30,13 @@ namespace SmashTiers.DataAccess
             }
         }
 
-        public IEnumerable<Character> GetCharacterById(int id)
+        public IEnumerable<SingleCharacter> GetCharacterById(int id)
         {
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                var result = connection.Query<Character>(@"select *
+                var result = connection.Query<SingleCharacter>(@"select *
                                                             from Character as c
                                                             join  MoveSetDamageData as msd
                                                             on c.Id = msd.CharacterId

@@ -27,5 +27,10 @@ namespace SmashTiers.Controllers
             return Ok(_storage.GetAllCharacters());
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetCharacterById(int id)
+        {
+            return Ok(_storage.GetCharacterById(id));
+        }
     }
 }
