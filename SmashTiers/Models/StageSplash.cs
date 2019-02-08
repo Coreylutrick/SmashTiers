@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SmashTiers.Models
 {
-    public class Character
+    public class StageSplash
     {
         public string Picture { get; set; }
     }
