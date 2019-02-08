@@ -32,6 +32,18 @@ export class Character extends Component {
             this.props.history.push(`/character/heaviest`)
         }
 
+        const sortByLightest = () => {
+            this.props.history.push(`/character/lightest`)
+        }
+
+        const sortBySlowest = () => {
+            this.props.history.push(`/character/slowest`)
+        }
+
+        const sortByFastest = () => {
+            this.props.history.push(`/character/fastest`)
+        }
+
         const allCharacters = this.state.characters.map((character) => {
             return (
                 <div key={character.id}>
@@ -47,6 +59,9 @@ export class Character extends Component {
                 </div>
                 <div>
                     <button onClick={() => sortByHeaviest()}>Heaviest</button>
+                    <button onClick={() => sortByLightest()}>Lightest</button>
+                    <button onClick={() => sortBySlowest()}>Slowest</button>
+                    <button onClick={() => sortByFastest()}>Fastest</button>
                 </div>
                 <div>
                     {allCharacters}

@@ -37,13 +37,13 @@ export class HeaviestCharacters extends Component {
     return (
         <div>
             <div>
-                <h1>Heaviest Characters(descending)</h1>
+                <h1>Heaviest Characters</h1>
             </div>
             <div>
                 {allCharacters}
             </div>
         </div>
     );
-}
+  }
 
 }
