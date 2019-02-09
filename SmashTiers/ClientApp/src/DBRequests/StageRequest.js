@@ -13,9 +13,25 @@ const getAllStagesRequest = () =>
       .catch(err =>
       {
         reject(err);
+      });
+  });
+};
+
+const getStagesLeastPlatforms = () =>
+{
+  return new Promise((resolve, reject) =>
+  {
+    axios.get(`/api/stage/leastPlatforms`)
+    .then(res =>
+      {
+        resolve(res.data)
       })
-  })
-}
+      .catch(err =>
+      {
+        reject(err)
+      });
+  });
+};
 
 const getStageById = (id) =>
 {
@@ -34,4 +50,4 @@ const getStageById = (id) =>
   });
 };
 
-export default {getAllStagesRequest, getStageById}
+export default {getAllStagesRequest, getStageById, getStagesLeastPlatforms}
