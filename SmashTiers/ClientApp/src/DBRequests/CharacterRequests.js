@@ -34,6 +34,57 @@ const GetCharactersByHeaviest = () =>
   });
 }
 
+const getCharacterByLightest = () =>
+{
+  return new Promise ((resolve, reject) =>
+  {
+    axios
+    .get(`/api/character/lightest`)
+    .then(res =>
+      {
+        resolve(res.data)
+      })
+      .catch(err =>
+      {
+        reject(err)
+      });
+  });
+}
+
+const getCharacterBySlowest = () =>
+{
+  return new Promise ((resolve, reject) =>
+  {
+    axios
+    .get(`/api/charaqcter/slowest`)
+    .then(res =>
+      {
+        resolve(res.data)
+      })
+      .catch(err =>
+      {
+        reject(err)
+      });
+  });
+}
+
+const getCharacterByFastest = () =>
+{
+  return new Promise ((resolve, reject) =>
+  {
+    axios
+    .get(`/api/charaqcter/fastest`)
+    .then(res =>
+      {
+        resolve(res.data)
+      })
+      .catch(err =>
+      {
+        reject(err)
+      });
+  });
+}
+
 const getCharacterById = (id) =>
 {
   return new Promise((resolve, reject) =>
@@ -51,4 +102,4 @@ const getCharacterById = (id) =>
   });
 };
 
-export default {getAllCharactersRequest, getCharacterById, GetCharactersByHeaviest}
+export default {getAllCharactersRequest, getCharacterById, GetCharactersByHeaviest, getCharacterByFastest, getCharacterBySlowest, getCharacterByLightest}
