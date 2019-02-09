@@ -31,5 +31,11 @@ namespace SmashTiers.Controllers
         {
             return Ok(_storage.GetStageById(id));
         }
+
+        [HttpGet("leastPlatforms")]
+        public IActionResult GetStagesByLeastPlatforms()
+        {
+            return Ok(_storage.GetStageByLeastPlatforms());
+        }
     }
 }

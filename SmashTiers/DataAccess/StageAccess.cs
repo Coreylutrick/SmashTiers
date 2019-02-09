@@ -44,5 +44,19 @@ namespace SmashTiers.DataAccess
             }
         }
 
+        public IEnumerable<Stage> GetStageByLeastPlatforms()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Query<Stage>(@"select *
+                                                        from Stages
+                                                        ORDER BY Platforms");
+
+                return result;
+            }
+        }
+
     }
 }
