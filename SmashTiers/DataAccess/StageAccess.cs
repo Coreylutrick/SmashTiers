@@ -44,5 +44,61 @@ namespace SmashTiers.DataAccess
             }
         }
 
+        public IEnumerable<Stage> GetStageByLeastPlatforms()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Query<Stage>(@"select *
+                                                        from Stages
+                                                        ORDER BY Platforms");
+
+                return result;
+            }
+        }
+
+        public IEnumerable<Stage> GetStageByMostPlatforms()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Query<Stage>(@"select *
+                                                        from Stages
+                                                        ORDER BY Platforms DESC");
+
+                return result;
+            }
+        }
+
+        public IEnumerable<Stage> GetTournamentLegalStage()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Query<Stage>(@"select *
+                                                        from Stages
+                                                        where TournamentLegal = 1");
+
+                return result;
+            }
+        }
+
+        public IEnumerable<Stage> GetTournamentNotLegalStage()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Query<Stage>(@"select *
+                                                        from Stages
+                                                        where TournamentLegal = 0");
+
+                return result;
+            }
+        }
+
     }
 }

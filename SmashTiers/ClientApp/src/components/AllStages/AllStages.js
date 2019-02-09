@@ -22,6 +22,22 @@ export class Stage extends Component {
 
   render() {
 
+    const notTournamentLegal = () => {
+      this.props.history.push(`/stage/notTournamentLegal`)
+    }
+
+    const tournamentLegal = () => {
+      this.props.history.push(`/stage/tournamentLegal`)
+    }
+
+    const mostPlatforms = () => {
+      this.props.history.push(`/stage/mostPlatforms`)
+    }
+
+    const leastPlatforms = () => {
+      this.props.history.push(`/stage/leastPlatforms`)
+    }
+
     const singleStage = (id) => {
       this.props.history.push(`/stage/${id}`)
     }
@@ -38,6 +54,12 @@ export class Stage extends Component {
       <div>
         <div>
           <h1>Stages</h1>
+        </div>
+        <div>
+          <button onClick={() => leastPlatforms()}>Least Platforms</button>
+          <button onClick={() => mostPlatforms()}>Most Platforms</button>
+          <button onClick={() => tournamentLegal()}>Tournament Legal</button>
+          <button onClick={() => notTournamentLegal()}>Not Tournament Legal</button>
         </div>
         <div>
           {allStages}
