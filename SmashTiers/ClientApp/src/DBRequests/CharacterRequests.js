@@ -56,7 +56,7 @@ const getCharacterBySlowest = () =>
   return new Promise ((resolve, reject) =>
   {
     axios
-    .get(`/api/charaqcter/slowest`)
+    .get(`/api/character/slowest`)
     .then(res =>
       {
         resolve(res.data)
@@ -73,7 +73,7 @@ const getCharacterByFastest = () =>
   return new Promise ((resolve, reject) =>
   {
     axios
-    .get(`/api/charaqcter/fastest`)
+    .get(`/api/character/fastest`)
     .then(res =>
       {
         resolve(res.data)
