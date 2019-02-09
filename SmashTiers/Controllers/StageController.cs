@@ -37,5 +37,23 @@ namespace SmashTiers.Controllers
         {
             return Ok(_storage.GetStageByLeastPlatforms());
         }
+
+        [HttpGet("mostPlatforms")]
+        public IActionResult GetStagesByMostPlatforms()
+        {
+            return Ok(_storage.GetStageByMostPlatforms());
+        }
+
+        [HttpGet("tournamentLegal")]
+        public IActionResult GetStagesByTournamentLegal()
+        {
+            return Ok(_storage.GetTournamentLegalStage());
+        }
+
+        [HttpGet("tournamentNotLegal")]
+        public IActionResult GetStagesByNotTournamentLegal()
+        {
+            return Ok(_storage.GetTournamentNotLegalStage());
+        }
     }
 }
