@@ -27,9 +27,9 @@ export class SingleCharacter extends Component {
     const singleCharacter = this.state.character.map((character) =>
     {
       return (
+        <div key={character.id}>
         <div>
-          <div key={character.id}>
-            <div>
+          <div>
               <h1>{character.characterName}</h1>
             </div>
             <div>

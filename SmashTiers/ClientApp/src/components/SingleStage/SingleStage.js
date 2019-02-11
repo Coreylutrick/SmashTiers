@@ -28,8 +28,8 @@ export class SingleStage extends Component {
     const singleStage = this.state.stage.map((stage) =>
     {
       return (
-        <div>
-          <div key={stage.id}>
+        <div key={stage.id}>
+          <div>
             <div>
               <h1>{stage.stageName}</h1>
             </div>

@@ -33,6 +33,54 @@ const getStagesLeastPlatforms = () =>
   });
 };
 
+const getStagesMostPlatforms = () =>
+{
+  return new Promise((resolve, reject) =>
+  {
+    axios.get(`/api/stage/mostPlatforms`)
+    .then(res =>
+      {
+        resolve(res.data)
+      })
+      .catch(err =>
+      {
+        reject(err)
+      });
+  });
+};
+
+const getTournamentLegalStage = () =>
+{
+  return new Promise((resolve, reject) =>
+  {
+    axios.get(`/api/stage/tournamentLegal`)
+    .then(res =>
+      {
+        resolve(res.data)
+      })
+      .catch(err =>
+      {
+        reject(err)
+      });
+  });
+};
+
+const getTournamentNotLegalStage = () =>
+{
+  return new Promise((resolve, reject) =>
+  {
+    axios.get(`/api/stage/tournamentNotLegal`)
+    .then(res =>
+      {
+        resolve(res.data)
+      })
+      .catch(err =>
+      {
+        reject(err)
+      });
+  });
+};
+
 const getStageById = (id) =>
 {
   return new Promise((resolve, reject) =>
@@ -50,4 +98,4 @@ const getStageById = (id) =>
   });
 };
 
-export default {getAllStagesRequest, getStageById, getStagesLeastPlatforms}
+export default {getAllStagesRequest, getStageById, getStagesLeastPlatforms, getTournamentLegalStage, getTournamentNotLegalStage, getStagesMostPlatforms}
