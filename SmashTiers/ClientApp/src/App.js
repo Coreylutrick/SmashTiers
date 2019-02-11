@@ -16,9 +16,17 @@ import { StagesTournamentLegal } from './components/StageTournamentLegal/StageTo
 import { StagesNotTournamentLegal } from './components/StageNotTournamentLegal/StageNotTournamentLegal';
 import { Registration } from './components/Registration/Registration';
 import { Authentication } from './components/Authentication/Authentication';
+import fbConnection from '../src/FbRequests/connection';
+
+fbConnection();
 
 export default class App extends Component {
   displayName = App.name
+
+  state =
+  {
+    authed: false
+  }
 
   render() {
     return (
@@ -34,7 +42,7 @@ export default class App extends Component {
           <Route path='/character/heaviest' component={HeaviestCharacters} />
           <Route path='/stage/:id' component={SingleStage} />
           <Route path='/character/:id' component={SingleCharacter} />
-          <Route path='/registration' component={Registraion} />
+          <Route path='/registration' component={Registration} />
           <Route path='/authentication' component={Authentication} />
           <Route exact path='/' component={Home} />
           <Route path='/character' component={Character} />

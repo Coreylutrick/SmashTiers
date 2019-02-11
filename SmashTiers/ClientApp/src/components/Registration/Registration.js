@@ -94,6 +94,19 @@ export class Registration extends Component {
                   type="email"
                   className="form-control"
                   id="inputEmail"
+                  placeholder="Last Name"
+                  value={user.LasName}
+                  onChange={this.lastNameChange}
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="inputEmail" className="col-sm-4 control-label">Email:</label>
+              <div className="col-sm-8">
+                <input
+                  type="email"
+                  className="form-control"
+                  id="inputEmail"
                   placeholder="Email"
                   value={user.Email}
                   onChange={this.emailChange}

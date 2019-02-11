@@ -13,7 +13,7 @@ axios.interceptors.request.use((config) => {
 });
 
 const registerUser = (user) => {
-  return firebase.auth().createUserWithEmailAndPassword(use.Email, user.Password);
+  return firebase.auth().createUserWithEmailAndPassword(user.Email, user.Password);
 };
 
 const addUser = (user) =>
