@@ -14,6 +14,7 @@ import { StageLeastPlatforms } from './components/StageLeastPlatforms/StageLeast
 import { StageMostPlatforms } from './components/StageMostPlatforms/StageMostPlatforms';
 import { StagesTournamentLegal } from './components/StageTournamentLegal/StageTournamentLegal';
 import { StagesNotTournamentLegal } from './components/StageNotTournamentLegal/StageNotTournamentLegal';
+import { TierList } from './components/TierList/TierList';
 
 export default class App extends Component {
   displayName = App.name
@@ -33,6 +34,7 @@ export default class App extends Component {
           <Route path='/stage/:id' component={SingleStage} />
           <Route path='/character/:id' component={SingleCharacter} />
           <Route exact path='/' component={Home} />
+          <Route path='/tierList' component={TierList} />
           <Route path='/character' component={Character} />
           <Route path='/stage' component={Stage} />
         </Switch>
