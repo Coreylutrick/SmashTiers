@@ -29,6 +29,16 @@ CREATE TABLE Character (
   Picture varchar(MAX) not null 
 );
 
+
+
+CREATE TABLE [User] (
+	Id int not null PRIMARY KEY IDENTITY(1,1),
+	FirstName varchar(50) not null,
+	LastName varchar(50)not null,
+	IsActive bit not null,
+	FirebaseId varchar(100)
+);
+
 CREATE TABLE MoveSetFrameData (
 	Id int not null PRIMARY KEY IDENTITY(1,1),
 	CharacterId int not null,
