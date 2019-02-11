@@ -12,8 +12,8 @@ import { FastestCharacters } from './components/FastestCharacters/FastestCharact
 import { SlowestCharacters } from './components/SlowestCharacters/SlowestCharacters';
 import { StageLeastPlatforms } from './components/StageLeastPlatforms/StageLeastPlatforms';
 import { StageMostPlatforms } from './components/StageMostPlatforms/StageMostPlatforms';
-import { TournamentLegal } from './components/StageTournamentLegal/StageTournamentLegal';
-import { NotTournamentLegal } from './components/StageNotTournamentLegal/StageNotTournamentLegal';
+import { StagesTournamentLegal } from './components/StageTournamentLegal/StageTournamentLegal';
+import { StagesNotTournamentLegal } from './components/StageNotTournamentLegal/StageNotTournamentLegal';
 
 export default class App extends Component {
   displayName = App.name
@@ -22,8 +22,8 @@ export default class App extends Component {
     return (
       <Layout>
         <Switch>
-          <Route path='/stage/notTournamentLegal' component={NotTournamentLegal} />
-          <Route path='/stage/tournamentLegal' component={TournamentLegal} />
+          <Route path='/stage/notTournamentLegal' component={StagesNotTournamentLegal} />
+          <Route path='/stage/tournamentLegal' component={StagesTournamentLegal} />
           <Route path='/stage/mostPlatforms' component={StageMostPlatforms} />
           <Route path='/stage/leastPlatforms' component={StageLeastPlatforms} />
           <Route path='/character/slowest' component={SlowestCharacters} />
