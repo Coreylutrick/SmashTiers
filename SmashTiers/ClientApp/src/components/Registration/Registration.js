@@ -75,7 +75,7 @@ export class Registration extends Component {
           <h1>Register</h1>
           <form className="form-horizontal col-sm-6 col-sm-offset-3">
             <div className="form-group">
-              <label htmlfor="inputFirstName" className="col-sm-4 control-label"> First Name:</label>
+              <label htmlFor="inputFirstName" className="col-sm-4 control-label"> First Name:</label>
               <div className="col-sm-8">
                 <input
                   type="text"
