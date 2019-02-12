@@ -37,7 +37,7 @@ export class StageLeastPlatforms extends Component {
     return (
       <div>
         <div>
-          <h1>Stages</h1>
+          <h1>Stages With Least Platforms</h1>
         </div>
         <div>
           {stagesLeastPlatforms}

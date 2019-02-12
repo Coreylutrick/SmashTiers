@@ -29,6 +29,49 @@ CREATE TABLE Character (
   Picture varchar(MAX) not null 
 );
 
+CREATE TABLE TierList (
+	Id int not null PRIMARY KEY IDENTITY(1,1),
+	Title varchar(100) not null
+);
+
+CREATE TABLE VeryHighTier (
+	TierListId int not null,
+	Title varchar(100),
+	CharacterImage varchar(200)
+)
+
+CREATE TABLE HighTier (
+	TierListId int not null,
+	Title varchar(100),
+	CharacterImage varchar(200)
+)
+
+CREATE TABLE MediumTier (
+	TierListId int not null,
+	Title varchar(100),
+	CharacterImage varchar(200)
+)
+
+CREATE TABLE LowTier (
+	TierListId int not null,
+	Title varchar(100),
+	CharacterImage varchar(200)
+)
+
+CREATE TABLE VeryLowTier (
+	TierListId int not null,
+	Title varchar(100),
+	CharacterImage varchar(200)
+)
+
+CREATE TABLE [User] (
+	Id int not null PRIMARY KEY IDENTITY(1,1),
+	FirstName varchar(50) not null,
+	LastName varchar(50)not null,
+	IsActive bit not null,
+	FirebaseId varchar(100)
+);
+
 CREATE TABLE MoveSetFrameData (
 	Id int not null PRIMARY KEY IDENTITY(1,1),
 	CharacterId int not null,

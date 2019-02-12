@@ -15,9 +15,19 @@ import { StageMostPlatforms } from './components/StageMostPlatforms/StageMostPla
 import { StagesTournamentLegal } from './components/StageTournamentLegal/StageTournamentLegal';
 import { StagesNotTournamentLegal } from './components/StageNotTournamentLegal/StageNotTournamentLegal';
 import { TierList } from './components/TierList/TierList';
+import { Registration } from './components/Registration/Registration';
+import { Authentication } from './components/Authentication/Authentication';
+import fbConnection from '../src/FbRequests/connection';
+
+fbConnection();
 
 export default class App extends Component {
   displayName = App.name
+
+  state =
+  {
+    authed: false
+  }
 
   render() {
     return (
@@ -33,6 +43,8 @@ export default class App extends Component {
           <Route path='/character/heaviest' component={HeaviestCharacters} />
           <Route path='/stage/:id' component={SingleStage} />
           <Route path='/character/:id' component={SingleCharacter} />
+          <Route path='/registration' component={Registration} />
+          <Route path='/authentication' component={Authentication} />
           <Route exact path='/' component={Home} />
           <Route path='/tierList' component={TierList} />
           <Route path='/character' component={Character} />

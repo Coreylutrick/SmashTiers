@@ -3,11 +3,39 @@ import { Link } from 'react-router-dom';
 import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './NavMenu.css';
+import authRequests from '../FbRequests/auth';
+import firebase from 'firebase'
 
 export class NavMenu extends Component {
   displayName = NavMenu.name
 
+  state =
+  {
+    authed: false
+  }
+
+  componentDidMount() {
+    this.removeEventListener = firebase.auth().onAuthStateChanged((user ) =>
+    {
+      if (user)
+      {
+        this.setState({authed: true});
+      }
+      else
+      {
+        this.setState({authed: false});
+      }
+    });
+  };
+
   render() {
+
+    const {authed} = this.state;
+
+    const logoutClickEvent = () => {
+      authRequests.logoutUser();
+    };
+
     return (
       <Navbar inverse fixedTop fluid collapseOnSelect>
         <Navbar.Header>
@@ -38,6 +66,20 @@ export class NavMenu extends Component {
                 <Glyphicon glyph='th-list' /> Tier List
               </NavItem>
             </LinkContainer>
+            { authed ? (
+              <LinkContainer to={'/authentication'}>
+              <NavItem>
+                <Glyphicon glyph='th-list' />
+                <button onClick={logoutClickEvent} className="btn btn-danger">Logout</button>
+              </NavItem>
+            </LinkContainer>
+            ) : (
+              <LinkContainer to={'/authentication'}>
+                <NavItem>
+                  <Glyphicon glyph='th-list' /> Login
+                </NavItem>
+              </LinkContainer>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -24,7 +24,7 @@ namespace SmashTiers.DataAccess
             {
                 connection.Open();
 
-                var result = connection.Execute(@"INSERT INTO User (FirstName,LastName,UserName,IsActive,FirebaseId)
+                var result = connection.Execute(@"INSERT INTO [User] (FirstName,LastName,IsActive,FirebaseId)
                                                     VALUES (@FirstName,@LastName,@IsActive,@FireBaseId);", user);
 
                 return result == 1;
