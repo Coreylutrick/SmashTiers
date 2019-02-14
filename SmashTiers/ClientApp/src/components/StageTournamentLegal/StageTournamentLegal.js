@@ -37,7 +37,7 @@ export class StagesTournamentLegal extends Component {
     return (
       <div>
         <div>
-          <h1>Stages Not Tournament Legal</h1>
+          <h1>Stages Tournament Legal</h1>
         </div>
         <div>
           {stagesTournamentLegal}

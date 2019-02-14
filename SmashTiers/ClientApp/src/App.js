@@ -14,6 +14,8 @@ import { StageLeastPlatforms } from './components/StageLeastPlatforms/StageLeast
 import { StageMostPlatforms } from './components/StageMostPlatforms/StageMostPlatforms';
 import { StagesTournamentLegal } from './components/StageTournamentLegal/StageTournamentLegal';
 import { StagesNotTournamentLegal } from './components/StageNotTournamentLegal/StageNotTournamentLegal';
+import { AllTierLists } from './components/AllTierLists/AllTierLists';
+import { SingleTierList } from './components/SingleTierList/SingleTierList'
 import { Registration } from './components/Registration/Registration';
 import { Authentication } from './components/Authentication/Authentication';
 import fbConnection from '../src/FbRequests/connection';
@@ -32,6 +34,8 @@ export default class App extends Component {
     return (
       <Layout>
         <Switch>
+          <Route path='/tierList/:id' component={SingleTierList} />
+          <Route path='/tierList' component={AllTierLists} />
           <Route path='/stage/notTournamentLegal' component={StagesNotTournamentLegal} />
           <Route path='/stage/tournamentLegal' component={StagesTournamentLegal} />
           <Route path='/stage/mostPlatforms' component={StageMostPlatforms} />

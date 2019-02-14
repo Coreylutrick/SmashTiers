@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import characterRequests from '../../DBRequests/CharacterRequests';
 import { Modal, Button, Glyphicon } from 'react-bootstrap';
-//import { CharacterFilterButtons } from '../CharacterFilterButtons/CharacterFilterButtons';
+import './AllCharacters.css'
 
 
 export class Character extends Component {
@@ -46,24 +46,24 @@ export class Character extends Component {
 
         const allCharacters = this.state.characters.map((character) => {
             return (
-                <div key={character.id}>
-                    <img src={character.picture} width="250" onClick={() => singleCharacter(character.id)} />
+                <div key={character.id} className="col-sm-2 col-sm-offset-1 character">
+                    <img src={character.picture} className="characterPicture" onClick={() => singleCharacter(character.id)} />
                 </div>
             );
         });
 
         return (
             <div>
-                <div>
+                <div className="title">
                     <h1>Characters</h1>
                 </div>
-                <div>
+                <div className="button">
                     <button onClick={() => sortByHeaviest()}>Heaviest</button>
                     <button onClick={() => sortByLightest()}>Lightest</button>
                     <button onClick={() => sortBySlowest()}>Slowest</button>
                     <button onClick={() => sortByFastest()}>Fastest</button>
                 </div>
-                <div>
+                <div className="row characterContainer">
                     {allCharacters}
                 </div>
             </div>

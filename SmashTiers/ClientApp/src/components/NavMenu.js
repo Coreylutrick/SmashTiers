@@ -61,6 +61,11 @@ export class NavMenu extends Component {
                 <Glyphicon glyph='th-list' /> Stages
               </NavItem>
             </LinkContainer>
+            <LinkContainer to={'/tierList'}>
+              <NavItem>
+                <Glyphicon glyph='th-list' /> Tier List
+              </NavItem>
+            </LinkContainer>
             { authed ? (
               <LinkContainer to={'/authentication'}>
               <NavItem>

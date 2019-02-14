@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import stageRequests from '../../DBRequests/StageRequest';
 import { Modal, Button, Glyphicon } from 'react-bootstrap';
+import './AllStages.css';
 
 export class Stage extends Component {
 
@@ -44,8 +45,8 @@ export class Stage extends Component {
 
     const allStages = this.state.stages.map((stage) => {
       return (
-        <div key={stage.id}>
-          <img src={stage.picture} width="250" onClick={() =>singleStage(stage.id)}/>
+        <div key={stage.id} className="col-sm-2 col-sm-offset-1 stage">
+          <img src={stage.picture} width="100" className="stageImage" onClick={() =>singleStage(stage.id)}/>
         </div>
       );
     });
@@ -53,7 +54,7 @@ export class Stage extends Component {
     return (
       <div>
         <div>
-          <h1>Stages</h1>
+          <h1 className="title">Stages</h1>
         </div>
         <div>
           <button onClick={() => leastPlatforms()}>Least Platforms</button>
@@ -61,7 +62,7 @@ export class Stage extends Component {
           <button onClick={() => tournamentLegal()}>Tournament Legal</button>
           <button onClick={() => notTournamentLegal()}>Not Tournament Legal</button>
         </div>
-        <div>
+        <div className="row">
           {allStages}
         </div>
       </div>

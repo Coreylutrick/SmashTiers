@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace SmashTiers.Models
 {
-    public class Character
+    public class TierListMini
     {
         public int Id { get; set; }
-        public string Picture { get; set; }
-        public string CharacterName { get; set; }
+        public string Title { get; set; }
+        public string Uid { get; set; }
     }
 }
