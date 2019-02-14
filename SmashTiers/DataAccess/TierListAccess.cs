@@ -32,5 +32,42 @@ namespace SmashTiers.DataAccess
                 return result;
             }
         }
+
+        public IEnumerable<TierListMini> GetAllTierListsMini()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var results = connection.Query<TierListMini>(@"select * from TierList");
+
+                return results;
+            }
+        }
+
+        public bool AddTier(Tier tier)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var results = connection.Execute(@"INSERT INTO Tier (TierListId, Title2, CharacterImage) Values(@TierListId, @Title2, @CharacterImage)", tier);
+
+                return results == 1;
+            }
+        }
+
+        public bool AddTierList(TierListMini tierList)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var result = connection.Execute(@"INSERT INTO TierList (Title, Uid) Values(@Title, @Uid)", tierList);
+
+                return result == 1;
+            }
+        }
+
     }
 }
