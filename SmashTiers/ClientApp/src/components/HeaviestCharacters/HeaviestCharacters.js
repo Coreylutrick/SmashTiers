@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import characterRequests from '../../DBRequests/CharacterRequests';
 import { Modal, Button, Glyphicon } from 'react-bootstrap';
+import '../AllCharacters/AllCharacters.css'
 
 export class HeaviestCharacters extends Component {
 
@@ -28,16 +29,16 @@ export class HeaviestCharacters extends Component {
 
     const allCharacters = this.state.characters.map((character) => {
         return (
-            <div key={character.id}>
-                <img src={character.picture} width="250" onClick={() => singleCharacter(character.id)} />
-            </div>
+        <div key={character.id} className="col-sm-2 col-sm-offset-1 character">
+            <img src={character.picture} className="characterPicture" onClick={() => singleCharacter(character.id)} />
+        </div>
         );
     });
 
     return (
         <div>
             <div>
-                <h1>Heaviest Characters</h1>
+                <h1 className="title">Heaviest Characters</h1>
             </div>
             <div>
                 {allCharacters}
