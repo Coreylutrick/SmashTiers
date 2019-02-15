@@ -1,7 +1,8 @@
 ﻿import React, { Component } from 'react';
 import characterRequests from '../../DBRequests/CharacterRequests';
-import { Modal, Button, Glyphicon } from 'react-bootstrap';
-import './AllCharacters.css'
+import { Modal, Glyphicon } from 'react-bootstrap';
+import { Button, Segment } from 'semantic-ui-react';
+import './AllCharacters.css';
 
 
 export class Character extends Component {
@@ -57,11 +58,21 @@ export class Character extends Component {
                 <div className="title">
                     <h1>Characters</h1>
                 </div>
-                <div className="button">
-                    <button onClick={() => sortByHeaviest()}>Heaviest</button>
-                    <button onClick={() => sortByLightest()}>Lightest</button>
-                    <button onClick={() => sortBySlowest()}>Slowest</button>
-                    <button onClick={() => sortByFastest()}>Fastest</button>
+                <div>
+                    <div className="button">
+                        <Button onClick={() => sortByHeaviest()} inverted color='red'>
+                            Heaviest
+                        </Button>
+                        <Button onClick={() => sortByLightest()} inverted color='yellow'>
+                            Lightest
+                        </Button>
+                        <Button onClick={() => sortBySlowest()} inverted color='green'>
+                            Slowest
+                        </Button>
+                        <Button onClick={() => sortByFastest()} inverted color='blue'>
+                            Fastest
+                        </Button>
+                    </div>
                 </div>
                 <div className="row characterContainer">
                     {allCharacters}

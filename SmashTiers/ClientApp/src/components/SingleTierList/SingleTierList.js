@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import tierListRequests from '../../DBRequests/TierListsRequests';
 import { Modal, Button, Glyphicon } from 'react-bootstrap';
+import { Card, Image } from 'semantic-ui-react';
+import './SingleTierList.css'
 
 export class SingleTierList extends Component {
 
@@ -28,15 +30,21 @@ export class SingleTierList extends Component {
     const singleTierList = this.state.tierList.map((tier) =>
     {
       return (
-        <div key={tier.id}>
-            <h1>{tier.title2}</h1>
-            <img src={tier.characterImage} width="30" />
+        <div key={tier.characterImage} className="col-xs-4 characterCard">
+          <Card raised color="blue">
+            <Image src={tier.characterImage} />
+            <Card.Content>
+              <Card.Header className="tierPLace">{tier.title2}</Card.Header>
+            </Card.Content>
+          </Card>
         </div>
       );
     });
     return (
       <div>
-        {singleTierList}
+        <div className="row">
+          {singleTierList}
+        </div>
       </div>
     )
   }

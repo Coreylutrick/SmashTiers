@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import tierListRequests from '../../DBRequests/TierListsRequests';
 import characterRequests from '../../DBRequests/CharacterRequests';
-import { Modal, Button, Glyphicon} from 'react-bootstrap';
+import { Modal, Glyphicon} from 'react-bootstrap';
 import fbRequests from '../../FbRequests/auth';
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Icon, Button, Card } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css'
+import './AllTierLists.css'
 
 const plainTierList =
 {
@@ -65,13 +66,12 @@ export class AllTierLists extends Component {
 
   postTierList = () => {
     tierListRequests.postNewTierList(this.state.newTierList);
-    this.componentDidMount();
+    this.handleClose();
   }
 
   postTier = () =>
   {
     tierListRequests.postNewTier(this.state.newTier);
-    this.handleClose();
   }
 
   tierListState = (name, e) => {
@@ -139,8 +139,19 @@ export class AllTierLists extends Component {
     const allTierLists = this.state.tierList.map((tier) =>
     {
       return (
-        <div key={tier.id} onClick={() => singleTierList(tier.id)}>
-          <h1>{tier.title}</h1>
+        <div key={tier.id} className="col-xs-3 singleList">
+          <Card raised color="blue">
+            <Card.Content>
+              <Card.Header>{tier.title}</Card.Header>
+            </Card.Content>
+            <Card.Content extra>
+              <div>
+                <Button inverted color='green' onClick={() => singleTierList(tier.id)}>
+                  View
+                </Button>
+              </div>
+            </Card.Content>
+          </Card>
         </div>
       );
     });
@@ -174,27 +185,26 @@ export class AllTierLists extends Component {
 
     return (
       <div>
-        <div>
-          <button onClick={this.handleShow}>Create New Tier List</button>
+        <h1 className="title">Tier Lists</h1>
+        <div className="button">
+          <Button onClick={this.handleShow} inverted color='green'>Create New Tier List</Button>
         </div>
-        <div>
+        <div className="tierLists">
           {allTierLists}
         </div>
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header>
             <Modal.Title>New Tier List</Modal.Title>
-
           </Modal.Header>
-
           <Modal.Body>
-            <input placeholder="Tier List Title" onChange={this.tierListTitleCreate} /> <button onClick={this.postTierList}>Save Tier List</button>
+            <input placeholder="Tier List Title" onChange={this.tierListTitleCreate} /> <Button inverted color='blue' onClick={this.postTierList}><Icon name='save' className="icon"/></Button>
             <Dropdown placeholder='Select TIer List' fluid selection options={tierListRemake} onChange={this.tierTierListAssign} />
             <Dropdown placeholder='Select Character To Add' fluid selection options={characterRemake} onChange={this.characterPictureAssign} />
             <Dropdown placeholder='Select Tier To Add Character Too' fluid selection options={tierTierNameRemake} onChange={this.tierCharacterTierAssign} />
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.handleClose}>Close</Button>
-            <Button bsStyle="primary" onClick={this.postTier}>Save changes</Button>
+            <Button onClick={this.handleClose} inverted color='red'>Close</Button>
+            <Button inverted color='blue' onClick={this.postTier}><Icon name='save' className="icon"/></Button>
           </Modal.Footer>
         </Modal>
       </div>

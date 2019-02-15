@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import characterRequests from '../../DBRequests/CharacterRequests';
 import { Modal, Button, Glyphicon } from 'react-bootstrap';
+import '../AllCharacters/AllCharacters.css'
 
 export class LightestCharacters extends Component {
 
@@ -28,8 +29,8 @@ export class LightestCharacters extends Component {
 
     const lightestCharacters = this.state.characters.map((character) => {
       return (
-        <div key={character.id}>
-          <img src={character.picture} width='250' onClick={() => singleCharacter(character.id)} />
+        <div key={character.id} className="col-sm-2 col-sm-offset-1 character">
+          <img src={character.picture} className="characterPicture" onClick={() => singleCharacter(character.id)} />
         </div>
       );
     });
@@ -37,7 +38,7 @@ export class LightestCharacters extends Component {
     return (
       <div>
         <div>
-          <h1>Lightest Characters</h1>
+          <h1 className="title">Lightest Characters</h1>
         </div>
         <div>
           {lightestCharacters}
