@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import stageRequests from '../../DBRequests/StageRequest';
 import { Modal, Button, Glyphicon } from 'react-bootstrap';
+import '../AllStages/AllStages.css'
 
 export class StagesTournamentLegal extends Component {
 
@@ -28,8 +29,8 @@ export class StagesTournamentLegal extends Component {
 
     const stagesTournamentLegal = this.state.stages.map((stage) => {
       return (
-        <div key={stage.id}>
-          <img src={stage.picture} width="250" onClick={() =>singleStage(stage.id)}/>
+        <div key={stage.id} className="col-sm-2 stage">
+          <img src={stage.picture} className="stageImage" onClick={() =>singleStage(stage.id)}/>
         </div>
       );
     });
@@ -37,9 +38,9 @@ export class StagesTournamentLegal extends Component {
     return (
       <div>
         <div>
-          <h1>Stages Tournament Legal</h1>
+          <h1 className="title">Stages Tournament Legal</h1>
         </div>
-        <div>
+        <div className="row">
           {stagesTournamentLegal}
         </div>
       </div>

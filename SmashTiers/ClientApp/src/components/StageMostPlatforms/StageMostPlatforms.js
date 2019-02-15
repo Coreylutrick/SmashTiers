@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import stageRequests from '../../DBRequests/StageRequest';
 import { Modal, Button, Glyphicon } from 'react-bootstrap';
+import '../AllStages/AllStages.css'
 
 export class StageMostPlatforms extends Component {
 
@@ -28,8 +29,8 @@ export class StageMostPlatforms extends Component {
 
     const stagesMostPlatforms = this.state.stages.map((stage) => {
       return (
-        <div key={stage.id}>
-          <img src={stage.picture} width="250" onClick={() => singleStage(stage.id)} />
+        <div key={stage.id} className="col-sm-2 stage">
+          <img src={stage.picture} className="stageImage" onClick={() =>singleStage(stage.id)}/>
         </div>
 
       );
@@ -37,10 +38,10 @@ export class StageMostPlatforms extends Component {
 
     return (
       <div>
-        <div>
+        <div className="title">
           <h1>Stages With Most Platforms</h1>
       </div>
-      <div>
+      <div className="row">
         {stagesMostPlatforms}
       </div>
     </div>

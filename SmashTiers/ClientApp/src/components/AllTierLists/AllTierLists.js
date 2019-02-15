@@ -126,6 +126,7 @@ export class AllTierLists extends Component {
     this.setState({ show: true });
     this.tierListUidState();
     this.getCharacters();
+    tierListRequests.getAllTierLists();
   }
 
   render ()
